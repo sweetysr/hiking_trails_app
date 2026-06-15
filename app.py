@@ -39,7 +39,7 @@ def home():
     trail_items = ""
 
     for trail in trails:
-        if search_text == "" or search_text.lower() in trail["name"].lower():
+        if search_text == "" or search_text in trail["name"].lower() or search_text in trail["location"].lower():
             trail_items = trail_items + f"""
             <li style="margin-bottom: 20px;">
                 <strong>{trail["name"]}</strong><br>
