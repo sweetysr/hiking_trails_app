@@ -41,3 +41,32 @@ This is an early learning version. More features will be added step by step.
 - Add a trail detail page
 - Add map support
 - Improve mobile design
+
+
+## June 18, 2026 Update
+
+Today I continued improving the Hiking Trails App.
+
+### Work Completed
+
+- Ran the Flask app from the terminal
+- Added a difficulty dropdown filter
+- Connected the filter to the trail data
+- Made search and difficulty filter work together
+- Fixed the dropdown so it remembers the selected option
+- Tested Easy, Moderate, Hard, and All filter options
+
+### What I Learned
+
+- How to read URL values using `request.args.get()`
+- How to filter Python list data using conditions
+- How to combine search and dropdown filters
+- How HTML forms send data to Flask
+- How to keep selected form values visible after submitting
+
+### Next Ideas
+
+- Add more trails
+- Move HTML into a template file
+- Move CSS into a separate CSS file
+- Add trail images
