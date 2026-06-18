@@ -35,11 +35,23 @@ trails = [
 
 @app.route("/")
 def home():
-    search_text = request.args.get("search", "")
+    search_text = request.args.get("search", "").lower()
+    selected_difficulty = request.args.get("difficulty", "All")
     trail_items = ""
 
     for trail in trails:
-        if search_text == "" or search_text in trail["name"].lower() or search_text in trail["location"].lower():
+        matches_search = (
+            search_text == ""
+            or search_text in trail["name"].lower()
+            or search_text in trail["location"].lower()
+        )
+
+        matches_difficulty = (
+            selected_difficulty == "All"
+            or selected_difficulty == trail["difficulty"]
+        )
+
+        if matches_search and matches_difficulty:
             trail_items = trail_items + f"""
             <li style="margin-bottom: 20px;">
                 <strong>{trail["name"]}</strong><br>
@@ -50,8 +62,9 @@ def home():
                 Best for: {trail["best_for"]}
             </li>
             """
-        
+
     return f"""
+
     <style>
 
         ul {{
@@ -106,6 +119,14 @@ def home():
 
     <form method="get">
         <input type="text" name="search" placeholder="Search trails..." value="{search_text}">
+        
+        <select name="difficulty">
+            <option value="All" {"selected" if selected_difficulty == "All" else ""}>All</option>
+            <option value="Easy" {"selected" if selected_difficulty == "Easy" else ""}>Easy</option>
+            <option value="Moderate" {"selected" if selected_difficulty == "Moderate" else ""}>Moderate</option>
+            <option value="Hard" {"selected" if selected_difficulty == "Hard" else ""}>Hard</option>
+        </select> 
+        
         <button type="submit">Search</button>
     </form>
 
@@ -114,5 +135,11 @@ def home():
             {trail_items}
         </ul>
     """
+
+def home():
+    search_text = request.args.get("search", "").lower()
+    selected_difficulty = request.args.get("difficulty", "All")
+    trail_items = ""
+
 
 
