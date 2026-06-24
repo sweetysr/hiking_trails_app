@@ -63,6 +63,11 @@ def home():
             </li>
             """
 
+    if trail_items == "":
+        trail_items = """
+        <p>No trails found. Try another search or difficulty.</p>
+        """
+
     return f"""
 
     <style>
@@ -130,7 +135,7 @@ def home():
         <button type="submit">Search</button>
     </form>
 
-    <h2>Available Trails</h2>
+    <h2>Search Results</h2>
         <ul>
             {trail_items}
         </ul>
