@@ -70,3 +70,30 @@ Today I continued improving the Hiking Trails App.
 - Move HTML into a template file
 - Move CSS into a separate CSS file
 - Add trail images
+
+
+## June 24, 2026 Update
+
+Today I continued improving the Hiking Trails App.
+
+### Work Completed
+
+- Restarted and tested the Flask app locally
+- Added a no-results message for searches with no matching trails
+- Fixed the placement of the no-results logic in the Python function
+- Updated the results heading from "Available Trails" to "Search Results"
+- Tested the empty search result using random search text
+
+### What I Learned
+
+- How indentation affects where Python code runs
+- Why logic after a `for` loop must line up correctly
+- How to check if a generated HTML string is empty
+- How to improve the user experience when no data matches a search
+
+### Next Ideas
+
+- Move HTML into a separate Flask template file
+- Move CSS into a separate stylesheet
+- Add more trail data
+- Add images for each trail
